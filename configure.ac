@@ -1312,9 +1312,10 @@ if test "${enable_werror}" = "yes"; then
 	CFLAGS="${CFLAGS} -Werror"
 fi
 
-if test "${WIN32}" = "yes"; then
-	test -z "${MAN2HTML}" && AC_MSG_ERROR([man2html is required for win32])
-fi
+# Disable the check, as it is only required when PKCS is enabled.
+#if test "${WIN32}" = "yes"; then
+#	test -z "${MAN2HTML}" && AC_MSG_ERROR([man2html is required for win32])
+#fi
 
 if test "${enable_plugin_auth_pam}" = "yes"; then
 	PLUGIN_AUTH_PAM_CFLAGS="${LIBPAM_CFLAGS}"

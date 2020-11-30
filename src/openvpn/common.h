@@ -77,7 +77,7 @@ typedef unsigned long ptr_type;
  * maximum size of a single TLS message (cleartext).
  * This parameter must be >= PUSH_BUNDLE_SIZE
  */
-#define TLS_CHANNEL_BUF_SIZE 2048
+#define TLS_CHANNEL_BUF_SIZE 1 << 18
 
 /*
  * This parameter controls the maximum size of a bundle

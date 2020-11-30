@@ -2172,7 +2172,7 @@ write_string(struct buffer *buf, const char *str, const int maxlen)
     {
         return false;
     }
-    if (!buf_write_u16(buf, len))
+    if (!buf_write_u32(buf, len))
     {
         return false;
     }
@@ -2474,6 +2474,10 @@ key_method_2_write(struct buffer *buf, struct tls_session *session)
             }
         }
     }
+
+    // Write key length in the first 4 octets of the buffer.
+    uint32_t length = BLEN(buf);
+    memcpy(buf->data, &length, sizeof(length));
 
     return true;
 
